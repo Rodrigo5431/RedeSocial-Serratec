@@ -1,16 +1,15 @@
 import React from 'react'
-import { BrowserRouter } from 'react-router-dom'
-import Header from './components/Header'
 import AppRoutes from './routes/AppRoutes'
-
+import Error from './pages/Error'
+import { BrowserRouter } from 'react-router-dom'
 
 export default function App() {
   return (
     <div>
       <BrowserRouter>
-      <Header/>
-      <AppRoutes/>      
+        <AppRoutes/>      
+        <Error />
       </BrowserRouter>
     </div>
-  )
+  );
 }
