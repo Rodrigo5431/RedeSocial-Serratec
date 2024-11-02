@@ -14,7 +14,7 @@ export default function AppRoutes() {
       <Route path='/Login' element={<Login/>}></Route>
       <Route path='/Posts' element={<Posts/>}></Route>
       <Route path='/Suporte' element={<Suporte/>}></Route>
-      <Route path='/Error' element={<Error/>}></Route>
+      <Route path='*' element={<Error/>}></Route>
       <Route path='/Configuracao' element={<Configuracao/>}></Route>
     </Routes>
   )
