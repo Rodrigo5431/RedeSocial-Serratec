@@ -1,17 +1,7 @@
 import React from "react";
 import axios from "axios";
-import {
-  CardBody,
-  CardPost,
-  Formulario,
-  TextConteudo,
-  LabText,
-  Line,
-  Main,
-  MsgH1,
-  BtnPost,
-  BtnDiv,
-} from "./Posts.styles";
+import {CardBody,CardPost,Formulario,TextConteudo,LabText,Line,Main,MsgH1,BtnPost,BtnDiv,} 
+from "./Posts.styles";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
@@ -114,4 +104,6 @@ export default function Posts() {
       </CardPost>
     </Main>
   );
+
 }
+
