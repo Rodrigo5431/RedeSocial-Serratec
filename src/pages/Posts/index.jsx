@@ -20,7 +20,7 @@ export default function Posts() {
 
       const response = await axios.get("http://localhost:8080/usuarios", {
         headers: {
-          Authorization: Bearer ${token}, 
+          Authorization: `Bearer ${token}`, 
         },
       });
 
@@ -64,7 +64,7 @@ export default function Posts() {
         postData,
         {
           headers: {
-            Authorization: Bearer ${token},
+            Authorization: `Bearer ${token}`,
           },
         }
       );
@@ -104,4 +104,6 @@ export default function Posts() {
       </CardPost>
     </Main>
   );
+
 }
+

@@ -1,7 +1,86 @@
-import React from 'react'
+import React, { useState } from "react";
+import axios from "axios";
 
 export default function Login() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setError(""); 
+    setSuccess(false);
+
+    try {
+      const response = await axios.post("http://localhost:8080/login", {
+        username,
+        password,
+      });
+
+      console.log("Resposta da API:", response); 
+
+    
+      const token = response.headers["authorization"];
+
+      if (token) {
+        const jwtToken = token.split(" ")[1]; 
+        console.log("Token:", jwtToken); 
+        localStorage.setItem("token", jwtToken);
+        setSuccess(true);
+        alert("Login realizado com sucesso!");
+        window.location.href = "/home"; 
+      } else {
+        console.error("Token não encontrado nos cabeçalhos da resposta.");
+        setError("Erro ao processar a resposta do servidor.");
+      }
+    } catch (error) {
+      console.error("Erro ao fazer login:", error);
+      setError("Credenciais inválidas. Tente novamente.");
+    }
+  };
+
+
   return (
-    <div>Login</div>
-  )
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        padding: "20px",
+      }}
+    >
+      <h2>Login</h2>
+      <form
+        onSubmit={handleLogin}
+      >
+        <input
+          type="text"
+          placeholder="Usuario"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
+        <input
+          type="password"
+          placeholder="Senha"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <button
+          type="submit"
+
+        >
+          Login
+        </button>
+      </form>
+      {error && <p style={{ color: "red", marginTop: "10px" }}>{error}</p>}
+      {success && (
+        <p style={{ color: "green", marginTop: "10px" }}>
+          Login realizado com sucesso!
+        </p>
+      )}
+    </div>
+  );
 }
