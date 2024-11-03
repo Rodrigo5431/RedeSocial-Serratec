@@ -7,6 +7,7 @@ import Suporte from '../pages/Suporte'
 import Error from '../pages/Error'
 import Configuracao from '../pages/Configuracao'
 
+
 export default function AppRoutes() {
   return (
     <Routes>
