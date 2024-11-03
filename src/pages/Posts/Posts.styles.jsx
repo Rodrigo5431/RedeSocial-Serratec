@@ -43,10 +43,6 @@ export const CardBody = styled.div`
     
 `;
 
-
-
-
-
 export const LabText = styled.label`
     display: block;
     margin-bottom: 7px;
