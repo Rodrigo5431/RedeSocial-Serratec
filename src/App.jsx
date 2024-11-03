@@ -1,12 +1,13 @@
 import React from 'react'
-import { BrowserRouter } from 'react-router-dom'
 import AppRoutes from './routes/AppRoutes'
+import { BrowserRouter } from 'react-router-dom'
 
 export default function App() {
   return (
+    <div>
       <BrowserRouter>
-        <AppRoutes/>
+        <AppRoutes/>      
       </BrowserRouter>
-    
-  )
+    </div>
+  );
 }
