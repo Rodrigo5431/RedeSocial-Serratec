@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { All, Botao, Formulario, H2, Input, Input2, Main } from "./Login.styles";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -9,7 +11,7 @@ export default function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setError(""); 
+    setError("");
     setSuccess(false);
 
     try {
@@ -18,18 +20,17 @@ export default function Login() {
         password,
       });
 
-      console.log("Resposta da API:", response); 
+      console.log("Resposta da API:", response);
 
-    
       const token = response.headers["authorization"];
 
       if (token) {
-        const jwtToken = token.split(" ")[1]; 
-        console.log("Token:", jwtToken); 
+        const jwtToken = token.split(" ")[1];
+        console.log("Token:", jwtToken);
         localStorage.setItem("token", jwtToken);
         setSuccess(true);
         alert("Login realizado com sucesso!");
-        window.location.href = "/home"; 
+        window.location.href = "/home";
       } else {
         console.error("Token não encontrado nos cabeçalhos da resposta.");
         setError("Erro ao processar a resposta do servidor.");
@@ -40,47 +41,36 @@ export default function Login() {
     }
   };
 
-
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        padding: "20px",
-      }}
-    >
-      <h2>Login</h2>
-      <form
-        onSubmit={handleLogin}
-      >
-        <input
-          type="text"
-          placeholder="Usuario"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Senha"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button
-          type="submit"
+    <Main>
+      <All>
+        <H2>Entrar</H2>
+        <Formulario onSubmit={handleLogin}>
+          <Input 
+            type="text"
+            placeholder="Usuario"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+          <Input2
+            type="password"
+            placeholder="Senha"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <Botao type="submit">Login</Botao>
+          <Link to={'/register'}>Registre-se</Link>
+        </Formulario>
 
-        >
-          Login
-        </button>
-      </form>
-      {error && <p style={{ color: "red", marginTop: "10px" }}>{error}</p>}
-      {success && (
-        <p style={{ color: "green", marginTop: "10px" }}>
-          Login realizado com sucesso!
-        </p>
-      )}
-    </div>
+        {error && <p style={{ color: "red", marginTop: "10px" }}>{error}</p>}
+        {success && (
+          <p style={{ color: "green", marginTop: "10px" }}>
+            Login realizado com sucesso!
+          </p>
+        )}
+      </All>
+    </Main>
   );
 }

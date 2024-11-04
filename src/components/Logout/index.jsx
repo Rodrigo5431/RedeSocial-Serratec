@@ -3,7 +3,7 @@ import React from "react";
 export default function Logout() {
   const handleLogout = () => {
     localStorage.removeItem("token");
-    alert("Logout realizado com sucesso!");
+    alert("Login realizado com sucesso!");
     window.location.href = "/";
   };
 
@@ -12,4 +12,5 @@ export default function Logout() {
       Logout
     </button>
   );
+
 }
