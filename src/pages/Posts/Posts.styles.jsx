@@ -19,7 +19,6 @@ export const CardPost = styled.div`
     height: 60%;
     @media (max-width: 480px) {
     width: 25rem; 
-    border: 3px solid blue;
   }
 
   @media (min-width: 481px) and (max-width: 768px) {
