@@ -7,6 +7,7 @@ export const Main = styled.main`
     justify-content: center;
     align-items: center;
     color: #fff;
+   
 `;
 
 export const CardPost = styled.div`
@@ -16,6 +17,23 @@ export const CardPost = styled.div`
     border-radius: 15px;
     width: 50%;
     height: 60%;
+    @media (max-width: 480px) {
+    width: 25rem; 
+    border: 3px solid blue;
+  }
+
+  @media (min-width: 481px) and (max-width: 768px) {
+    width: 70%; 
+    
+  }
+
+  @media (min-width: 769px) and (max-width: 1200px) {
+    width: 60%;
+  }
+
+  @media (min-width: 1201px) {
+    width: 55%;
+  }
 `;
 
 export const MsgH1 = styled.h1`
@@ -28,8 +46,23 @@ export const MsgH1 = styled.h1`
     -webkit-text-fill-color: transparent;
     color: transparent;
     color: #fff;
-    font-size: 3rem;
+    font-size: 3rem; 
     margin-bottom: 5px;
+     @media (max-width: 480px) {
+    font-size: 2.5em;
+  }
+
+   @media (min-width: 481px) and (max-width: 768px) {
+    font-size: 2em;
+  }
+
+  @media (min-width: 769px) and (max-width: 1399px) {
+    font-size: 1.8em;
+  }
+
+  @media (min-width: 1400px) {
+    font-size: 2em;
+  } 
 `;
 
 export const Line = styled.div`
@@ -39,6 +72,11 @@ export const Line = styled.div`
 
 export const CardBody = styled.div`
     margin-top: 25px;
+    
+    @media (max-width: 480px) {
+    width: 100%; 
+  }
+
 `;
 
 export const LabText = styled.label`
@@ -52,6 +90,11 @@ export const Formulario = styled.form`
     align-items: center;
     display: block;
     height: 50%;
+    @media (max-width: 480px) {
+    width: 100%; 
+  }
+
+ 
 `;
 
 export const TextConteudo = styled.textarea`
