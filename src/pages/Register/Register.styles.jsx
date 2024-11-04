@@ -34,6 +34,8 @@ padding: 20px;
 
 `
 export const H2 = styled.h2`
+display: flex;
+justify-content: center;
 margin-bottom: 60px;
 margin-left: 10px;
 margin-top: 5px;

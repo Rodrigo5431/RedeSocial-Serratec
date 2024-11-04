@@ -18,7 +18,6 @@ margin-bottom: 80px;
 background: rgba(255, 255, 255, 0.04);
 box-shadow: 0px 0px 100px 0px rgba(152, 91, 202, 0.8);
 width: 20%;
-
 @media (max-width: 800px) {
     width: 50%;
 }
@@ -31,6 +30,8 @@ padding: 20px;
 
 `
 export const H2 = styled.h2`
+display: flex;
+justify-content: center;
 margin-bottom: 60px;
 margin-left: 10px;
 margin-top: 5px;

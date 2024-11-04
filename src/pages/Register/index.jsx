@@ -4,51 +4,60 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 export default function Register() {
-  const [name, setName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [nome, setNome] = useState("");
+  const [sobrenome, setSobrenome] = useState("");
   const [email, setEmail] = useState("");
-  const [date, setDate] = useState("");
-  const [password, setPassword] = useState("");
+  const [senha, setSenha] = useState("");
+  const [url, setUrl] = useState();
+  const [dataNascimentoUsuario, setDataNascimentoUsuario] = useState("");
+  const [dataNascimento, setDataNascimento] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-   // setError("");
-    setSuccess(false);
-  }
 
+  const postLogin = async (e) => {
+  e.preventDefault();
   try {
-    const response = axios.post("http://localhost:8080/usuarios", {
-      name,
-      lastName,
-      email,
-      date,
-      password,
+    const response = await axios.post("http://localhost:8080/usuarios", {
+      nome: nome,
+      sobrenome : sobrenome,
+      email : email,
+      senha : senha,
+      dataNascimento: dataNascimento,
+      url : url,
     });
+
+   const data =  response.data 
+   console.log(data);
+
   } catch (error) {
     console.error("Erro ao fazer login:", error);
     setError("Credenciais inválidas. Tente novamente.");
   }
+}
+function invertDate(data) {
+  const [year, month, day] = data.split("-");
+  setDataNascimento(data); 
+}
 
   return (
     <Main>
       <All>
         <H2>Registre-se</H2>
-        <Formulario onSubmit={handleLogin}>
+        <Formulario onSubmit={(e)=> postLogin(e)}>
 
           <Input type="text" 
            placeholder="Nome"
-            value={name} 
-            onChange={(e) => setName(e.target.value)}
+            value={nome} 
+            onChange={(e) => setNome(e.target.value)}
             required
             />
 
           <Input
             type="text"
             placeholder="SobreNome"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
+            value={sobrenome}
+            onChange={(e) => setSobrenome(e.target.value)}
             required
           />
           <Input type="text" 
@@ -60,15 +69,22 @@ export default function Register() {
           <Input
             type="date"
             placeholder="Data de Nascimento"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
+            value={dataNascimento}
+            onChange={(e) => {invertDate(e.target.value), setDataNascimentoUsuario(e.target.value)}}
             required
           />
           <Input
             type="password"
             placeholder="Senha"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={senha}
+            onChange={(e) => setSenha(e.target.value)}
+            required
+          />
+          <Input
+            type="file"
+            placeholder="Foto"
+            value={url}
+            onChange={(e) => setUrl(e.target.value)}
             required
           />
 
