@@ -1,9 +1,23 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import {
+  Main,
+  CardPost,
+  MsgH1,
+  Line,
+  CardBody,
+  Formulario,
+  LabText,
+  TextConteudo,
+  BtnDiv,
+  BtnPost,
+} from "./AtualizarPosatagem";
 
 function AtualizarPostagem() {
+
   const { id } = useParams(); 
+
   const [conteudo, setConteudo] = useState("");
   const [dataCriacao, setDataCriacao] = useState("");
   const [error, setError] = useState("");
@@ -36,7 +50,9 @@ function AtualizarPostagem() {
     try {
       await axios.put(
         `http://localhost:8080/postagens/${id}`,
+
         { conteudo, datacriacao: dataCriacao }, 
+
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -44,7 +60,9 @@ function AtualizarPostagem() {
         }
       );
       alert("Postagem atualizada com sucesso!");
+
       navigate("/home"); 
+
     } catch (error) {
       console.error("Erro ao atualizar a postagem:", error);
       setError("Erro ao atualizar a postagem. Tente novamente.");
@@ -52,19 +70,27 @@ function AtualizarPostagem() {
   };
 
   return (
-    <div>
-      <h2>Atualizar Postagem</h2>
-      <form onSubmit={handleUpdate}>
-        <textarea
-          value={conteudo}
-          onChange={(e) => setConteudo(e.target.value)}
-          placeholder="Novo conteúdo da postagem"
-          required
-        />
-        <button type="submit">Atualizar</button>
-      </form>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-    </div>
+    <Main>
+      <CardPost>
+        <MsgH1>Atualizar Postagem</MsgH1>
+        <Line />
+        <CardBody>
+          <Formulario onSubmit={handleUpdate}>
+            <LabText>Conteúdo:</LabText>
+            <TextConteudo
+              value={conteudo}
+              onChange={(e) => setConteudo(e.target.value)}
+              placeholder="Novo conteúdo da postagem"
+              required
+            />
+            <BtnDiv>
+              <BtnPost type="submit">Atualizar</BtnPost>
+            </BtnDiv>
+          </Formulario>
+          {error && <p style={{ color: "red" }}>{error}</p>}
+        </CardBody>
+      </CardPost>
+    </Main>
   );
 }
 

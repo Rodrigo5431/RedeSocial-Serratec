@@ -128,9 +128,12 @@ export default function Home() {
           <Ulist>
             {postagens.map((postagem) => (
               <HomePostConfiguration
+                key={postagem.id} 
                 postagem={postagem}
                 fotos={fotos}
                 email={email}
+                handleDelete={handleDelete} 
+                navigate={navigate} 
               />
             ))}
           </Ulist>

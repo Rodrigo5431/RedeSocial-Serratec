@@ -11,7 +11,14 @@ import {
   NomeUsuario,
   Post,
 } from "./Home.style.jsx";
-export default function (props) {
+
+export default function HomePostConfiguration({
+  postagem,
+  fotos,
+  email,
+  handleDelete,
+  navigate,
+}) {
   const [configuration, setConfiguration] = useState(false);
   const postagem = props.postagem;
   const fotos = props.fotos;
@@ -32,9 +39,11 @@ export default function (props) {
           {postagem.usuario.nome} {postagem.usuario.sobrenome}
         </NomeUsuario>
       </Post>
+
       <ConteudoDiv>
-        <Conteudo> {postagem.conteudo}</Conteudo>
+        <Conteudo>{postagem.conteudo}</Conteudo>
       </ConteudoDiv>
+
       <Configuration>
         {postagem.usuario.email === email && (
           <>
