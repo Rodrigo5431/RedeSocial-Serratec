@@ -106,3 +106,11 @@ display: flex;
 margin-top: 10px;
 cursor: pointer;
 `;
+
+export const Linha = styled.hr`
+  
+  height: 2px;
+  border: 1px solid #fff;
+  width: 100%;
+  background-color: #fff;
+`;
