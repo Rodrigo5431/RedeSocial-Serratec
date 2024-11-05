@@ -16,6 +16,7 @@ export default function (props) {
   const postagem = props.postagem;
   const fotos = props.fotos;
   const email = props.email;
+  const deletar = props.deletar;
 
   return (
     <ListItem key={postagem.id}>
@@ -47,7 +48,7 @@ export default function (props) {
                 >
                   Editar
                 </ConfigurationButton>
-                <ConfigurationButton onClick={() => handleDelete(postagem.id)}>
+                <ConfigurationButton onClick={() => deletar(postagem.id)}>
                   Apagar
                 </ConfigurationButton>
               </ButtonDiv>
