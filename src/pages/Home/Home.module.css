@@ -1,3 +1,7 @@
-body{
-    background-color: #151718;
+body {
+  background-color: #151718;
+}
+.line {
+  background-color: #3e445b;
+  height: 2px;
 }
