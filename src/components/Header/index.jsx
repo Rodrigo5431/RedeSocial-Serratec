@@ -13,6 +13,7 @@ import {
   FotoUsuario,
   InformacoesUsuario,
   FotoUsuarioDiv,
+  NavButtons,
 } from "./Header.styles";
 import { useForm } from "react-hook-form";
 
