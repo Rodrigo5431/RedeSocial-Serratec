@@ -31,6 +31,7 @@ height: 480px;
 @media (max-width: 1000px) {
     width: 50%;
 }
+border-radius: 25px;
 `;
 export const Formulario = styled.form`
 display: flex;

@@ -11,7 +11,7 @@ export default function Error() {
         <TextContainer>
           <Titulo>Erro 404... </Titulo>
           <SubTitulo>Repito, 404.</SubTitulo>
-          <SubTituloDois>Alguem me ouve?...</SubTituloDois>
+          <SubTituloDois>Alguém me ouve?...</SubTituloDois>
           <SubTituloTres>SUB ESTAÇÃO ESPACIAL RESPONDE:</SubTituloTres>
           <SubTituloQuatro>Acho que você ultrapassou todos </SubTituloQuatro>
           <SubTituloQuatro>os limites do universo.</SubTituloQuatro>

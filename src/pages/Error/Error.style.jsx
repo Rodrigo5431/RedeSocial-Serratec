@@ -39,8 +39,6 @@ export const TextContainer = styled.div`
   }
 `;
 
-//-----------------------------------------------------------------------------------
-
 export const Titulo = styled.h1`
   background: linear-gradient(270deg, #4b2c63 40%, #bfa2d4 60%);
   background-clip: text;

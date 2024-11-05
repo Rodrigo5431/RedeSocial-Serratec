@@ -119,7 +119,7 @@ export default function Home() {
   };
 
   return (
-    <Body>
+    <All>
       <Header />
       <All>
         <Tittle></Tittle>
@@ -139,6 +139,6 @@ export default function Home() {
           </Ulist>
         </Postagens>
       </All>
-    </Body>
+    </All>
   );
 }

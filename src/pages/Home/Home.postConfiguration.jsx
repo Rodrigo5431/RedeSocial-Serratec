@@ -20,10 +20,6 @@ export default function HomePostConfiguration({
   navigate,
 }) {
   const [configuration, setConfiguration] = useState(false);
-  const postagem = props.postagem;
-  const fotos = props.fotos;
-  const email = props.email;
-  const deletar = props.deletar;
 
   return (
     <ListItem key={postagem.id}>
@@ -39,7 +35,7 @@ export default function HomePostConfiguration({
           {postagem.usuario.nome} {postagem.usuario.sobrenome}
         </NomeUsuario>
       </Post>
-
+      
       <ConteudoDiv>
         <Conteudo>{postagem.conteudo}</Conteudo>
       </ConteudoDiv>
@@ -57,7 +53,7 @@ export default function HomePostConfiguration({
                 >
                   Editar
                 </ConfigurationButton>
-                <ConfigurationButton onClick={() => deletar(postagem.id)}>
+                <ConfigurationButton onClick={() => handleDelete(postagem.id)}>
                   Apagar
                 </ConfigurationButton>
               </ButtonDiv>

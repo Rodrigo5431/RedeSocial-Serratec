@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { All, Botao, Formulario, H2, Input, Main, NavButtons } from "./Register.styles";
-import { Link } from "react-router-dom";
 import axios from "axios";
 
 export default function Register() {
