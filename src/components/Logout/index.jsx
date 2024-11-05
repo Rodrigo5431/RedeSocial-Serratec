@@ -1,15 +1,17 @@
 import React from "react";
+import { LogoutButton } from "./Logout.styles";
 
 export default function Logout() {
   const handleLogout = () => {
     localStorage.removeItem("token");
-    alert("Logout realizado com sucesso!");
+    alert("Login realizado com sucesso!");
     window.location.href = "/";
   };
 
   return (
-    <button onClick={handleLogout} style={{ marginTop: "20px" }}>
+    <LogoutButton onClick={handleLogout}>
       Logout
-    </button>
+    </LogoutButton>
   );
+
 }

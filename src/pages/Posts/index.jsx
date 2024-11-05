@@ -43,7 +43,7 @@ export default function Posts() {
         return;
       }
 
-      const email = JSON.parse(atob(token.split('.')[1])).sub; 
+      const email = JSON.parse(atob(token.split('.')[1])).sub;
       const userId = await getUserIdFromEmail(email); 
 
       if (!userId) {
