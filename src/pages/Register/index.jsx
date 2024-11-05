@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { All, Botao, Formulario, H2, Input, Main } from "./Register.styles";
+import { All, Botao, Formulario, H2, Input, Main, NavButtons } from "./Register.styles";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -113,7 +113,7 @@ export default function Register() {
           />
 
           <Botao type="submit">Criar Conta</Botao>
-          <Link to={"/"}>Ja tenho uma conta</Link>
+          <NavButtons to={"/"}>Ja tenho uma conta</NavButtons>
         </Formulario>
 
         {success && (

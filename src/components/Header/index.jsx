@@ -38,7 +38,6 @@ export default function Header() {
     }
   };
 
-
   const getUserIdFromEmail = async (email) => {
     try {
       const token = localStorage.getItem("token");
@@ -59,13 +58,12 @@ export default function Header() {
     }
   };
 
-
   const getFoto = async () => {
     try {
       const token = localStorage.getItem("token");
       const email = getUserEmailFromToken(token);
       const userId = await getUserIdFromEmail(email);
-      setEmail(email)
+      setEmail(email);
 
       if (userId) {
         const response = await axios.get(
@@ -82,14 +80,13 @@ export default function Header() {
     }
   };
 
-
   useEffect(() => {
     getFoto();
 
     return () => {
       if (foto) URL.revokeObjectURL(foto);
     };
-  }, [foto]);
+  }, []);
 
   return (
     <Headerpp>
@@ -98,32 +95,36 @@ export default function Header() {
         <Navigation>
           <Ulist>
             <List>
-              <Link to="/home">
+              <NavButtons to="/home">
                 <Text>Home</Text>
-              </Link>
+              </NavButtons>
             </List>
             <List>
-              <Link to="/Posts">
+              <NavButtons to="/Posts">
                 <Text>Postagens</Text>
-              </Link>
+              </NavButtons>
             </List>
             <List>
-              <Link to="/configuracoes">
-                <Text>Configurações</Text>
-              </Link>
+              <NavButtons to="/suporte">
+                <Text>Suporte</Text>
+              </NavButtons>
             </List>
           </Ulist>
         </Navigation>
       </Divi>
-            <InformacoesUsuario>
-              <FotoUsuario src={foto} alt="Foto do usuário"  onClick={()=> setInfLogout(!infLogout)}/>
-              {infLogout &&(
-              <FotoUsuarioDiv>
-                {email}
-                <Logout/>
-              </FotoUsuarioDiv>
-              )}
-            </InformacoesUsuario>
+      <InformacoesUsuario>
+        <FotoUsuario
+          src={foto}
+          alt="Foto do usuário"
+          onClick={() => setInfLogout(!infLogout)}
+        />
+      </InformacoesUsuario>
+      {infLogout && (
+        <FotoUsuarioDiv>
+          {email}
+          <Logout />
+        </FotoUsuarioDiv>
+      )}
     </Headerpp>
   );
 }

@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Headerpp = styled.header`
   display: flex;
@@ -6,6 +7,7 @@ export const Headerpp = styled.header`
   height: 80px;
   align-items: center;
   border-bottom: 3px solid rgba(255, 255, 255, 0.1);
+
 `;
 export const Logo = styled.img`
   width: 80px;
@@ -35,6 +37,9 @@ export const Ulist = styled.ul`
   text-decoration: none;
   margin-right: 100px;
 `;
+export const NavButtons = styled(Link)`
+text-decoration: none;
+`;
 
 export const List = styled.li`
   flex-direction: row;
@@ -43,7 +48,7 @@ export const List = styled.li`
 `;
 export const Text = styled.h2`
   color: #bfa2d4;
-  text-decoration: none;
+  text-decoration:none ;
 `;
 export const FotoUsuarioDiv = styled.div`
 display: flex;
@@ -53,7 +58,12 @@ align-items: center;
 background-color: #303538;
 color: #BFA2D4;
 padding: 7px;
+position: absolute;
+right: 45px;
+top: 80px;
+border-radius: 0 0 25px 25px;
 `;
+
 export const InformacoesUsuario = styled.div`
 flex-direction: column;
 width: 150px;

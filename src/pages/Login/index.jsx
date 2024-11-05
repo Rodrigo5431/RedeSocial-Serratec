@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { All, Botao, Formulario, H2, Input, Input2, Main } from "./Login.styles";
-import { Link } from "react-router-dom";
+import { All, Botao, Formulario, H2, Input, Input2, Main, NavButtons } from "./Login.styles";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -60,7 +59,7 @@ export default function Login() {
             required
           />
           <Botao type="submit">Login</Botao>
-          <Link to={'/register'}>Não tenho uma conta</Link>
+          <NavButtons to={'/register'}>Não tenho uma conta</NavButtons>
         </Formulario>
 
         {error && <p style={{ color: "red", marginTop: "10px" }}>{error}</p>}

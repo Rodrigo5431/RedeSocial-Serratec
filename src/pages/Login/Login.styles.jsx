@@ -1,4 +1,5 @@
 import {styled} from 'styled-components';
+import {Link }  from 'react-router-dom'
 
 
 export const Main = styled.main`
@@ -11,6 +12,10 @@ height: 100vh;
 color: #fff;
 
 `;
+export const NavButtons = styled(Link)`
+color: #6f20a8;
+`
+
 export const All = styled.div`
 justify-content: center;
 align-items: center;

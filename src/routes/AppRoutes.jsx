@@ -6,7 +6,6 @@ import Posts from '../pages/Posts'
 import Suporte from '../pages/Suporte'
 import Error from '../pages/Error'
 import Register from '../pages/Register'
-import Configuracao from '../pages/Configuracao'
 import PrivateRoute from './PrivateRoutes'
 import AtualizarPostagem from '../pages/AtualizarPostagem'
 
@@ -21,7 +20,6 @@ export default function AppRoutes() {
       <Route path="/suporte" element={<Suporte />}></Route>
       <Route path="/register" element={<Register />}></Route>
       <Route path="*" element={<Error />}></Route>
-      <Route path="/configuracao" element={<Configuracao />}></Route>
     </Routes>
   );
 }
