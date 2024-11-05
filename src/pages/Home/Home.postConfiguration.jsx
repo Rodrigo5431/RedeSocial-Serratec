@@ -35,7 +35,7 @@ export default function HomePostConfiguration({
           {postagem.usuario.nome} {postagem.usuario.sobrenome}
         </NomeUsuario>
       </Post>
-
+      
       <ConteudoDiv>
         <Conteudo>{postagem.conteudo}</Conteudo>
       </ConteudoDiv>

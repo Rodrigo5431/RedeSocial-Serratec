@@ -26,6 +26,7 @@ width: 25%;
 @media (max-width: 800px) {
     width: 50%;
 }
+border-radius: 25px;
 
 `;
 export const Formulario = styled.form`
@@ -39,7 +40,7 @@ display: flex;
 justify-content: center;
 margin-bottom: 60px;
 margin-left: 10px;
-margin-top: 5px;
+margin-top: 10px;
 font-size: 40px;
 font-family:Whereas recognition of the inherent dignity;
 @media (max-width: 650px) {
