@@ -29,7 +29,6 @@ export default function Login() {
         console.log("Token:", jwtToken);
         localStorage.setItem("token", jwtToken);
         setSuccess(true);
-        alert("Login realizado com sucesso!");
         window.location.href = "/home";
       } else {
         console.error("Token não encontrado nos cabeçalhos da resposta.");

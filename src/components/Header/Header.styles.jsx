@@ -46,8 +46,13 @@ export const Text = styled.h2`
   text-decoration: none;
 `;
 export const FotoUsuarioDiv = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
 background-color: #303538;
-
+color: #BFA2D4;
+padding: 7px;
 `;
 export const InformacoesUsuario = styled.div`
 flex-direction: column;

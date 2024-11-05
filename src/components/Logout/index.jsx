@@ -1,4 +1,5 @@
 import React from "react";
+import { LogoutButton } from "./Logout.styles";
 
 export default function Logout() {
   const handleLogout = () => {
@@ -8,9 +9,9 @@ export default function Logout() {
   };
 
   return (
-    <button onClick={handleLogout} style={{ marginTop: "20px" }}>
+    <LogoutButton onClick={handleLogout}>
       Logout
-    </button>
+    </LogoutButton>
   );
 
 }
