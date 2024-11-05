@@ -1,13 +1,22 @@
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Logout from "../../components/Logout";
+import Header from "../../components/Header";
+import "./Home.module.css";
+import {
+  All,
+  Body,
+  Postagens,
+  Tittle,
+  Ulist,
+} from "./Home.style.jsx";
+import HomePostConfiguration from "./Home.postConfiguration.jsx";
 
 export default function Home() {
   const [postagens, setPostagens] = useState([]);
   const [fotos, setFotos] = useState({});
   const [error, setError] = useState("");
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -16,7 +25,6 @@ export default function Home() {
     if (!token) {
       navigate("/");
     } else {
-
       const fetchPostagens = async () => {
         try {
           const response = await axios.get("http://localhost:8080/postagens", {
@@ -68,7 +76,7 @@ export default function Home() {
       };
 
       fetchPostagens();
-      const intervalId = setInterval(fetchPostagens, 10000); 
+      const intervalId = setInterval(fetchPostagens, 10000);
 
       return () => clearInterval(intervalId);
     }
@@ -83,9 +91,10 @@ export default function Home() {
   const getUserEmailFromToken = (token) => {
     const payload = token.split(".")[1];
     const decodedPayload = JSON.parse(atob(payload));
+
     return decodedPayload.sub;
   };
-
+  const email = getUserEmailFromToken(localStorage.getItem("token"));
   const handleDelete = async (postagemId) => {
     try {
       const token = localStorage.getItem("token");
@@ -110,41 +119,23 @@ export default function Home() {
   };
 
   return (
-    <div>
-      <h2>Postagens</h2>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <ul>
-        {postagens.map((postagem) => (
-          <li key={postagem.id}>
-            <strong>
-              {postagem.usuario.nome} {postagem.usuario.sobrenome}
-            </strong>
-            <img
-              src={
-                fotos[postagem.usuario.id] || "caminho/para/imagem/padrao.jpg"
-              }
-              alt={`${postagem.usuario.nome} ${postagem.usuario.sobrenome}`}
-              onError={(e) => {
-                e.target.src = "caminho/para/imagem/padrao.jpg";
-              }}
-              style={{ width: 50, height: 50, borderRadius: "50%" }}
-            />
-            : {postagem.conteudo}
-            {postagem.usuario.email ===
-              getUserEmailFromToken(localStorage.getItem("token")) && (
-              <>
-                <button onClick={() => handleDelete(postagem.id)}>
-                  Deletar
-                </button>
-                <button onClick={() => navigate(`/atualizar/${postagem.id}`)}>
-                  Atualizar
-                </button>
-              </>
-            )}
-          </li>
-        ))}
-      </ul>
-      <Logout />
-    </div>
+    <Body>
+      <Header />
+      <All>
+        <Tittle></Tittle>
+        <Postagens>
+          {error && <p style={{ color: "red" }}>{error}</p>}
+          <Ulist>
+            {postagens.map((postagem) => (
+              <HomePostConfiguration
+                postagem={postagem}
+                fotos={fotos}
+                email={email}
+              />
+            ))}
+          </Ulist>
+        </Postagens>
+      </All>
+    </Body>
   );
 }

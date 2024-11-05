@@ -15,7 +15,9 @@ import {
 } from "./AtualizarPosatagem";
 
 function AtualizarPostagem() {
-  const { id } = useParams();
+
+  const { id } = useParams(); 
+
   const [conteudo, setConteudo] = useState("");
   const [dataCriacao, setDataCriacao] = useState("");
   const [error, setError] = useState("");
@@ -48,7 +50,9 @@ function AtualizarPostagem() {
     try {
       await axios.put(
         `http://localhost:8080/postagens/${id}`,
-        { conteudo, datacriacao: dataCriacao },
+
+        { conteudo, datacriacao: dataCriacao }, 
+
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -56,7 +60,9 @@ function AtualizarPostagem() {
         }
       );
       alert("Postagem atualizada com sucesso!");
-      navigate("/home");
+
+      navigate("/home"); 
+
     } catch (error) {
       console.error("Erro ao atualizar a postagem:", error);
       setError("Erro ao atualizar a postagem. Tente novamente.");
