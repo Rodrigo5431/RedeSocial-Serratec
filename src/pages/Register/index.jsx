@@ -8,50 +8,71 @@ export default function Register() {
   const [sobrenome, setSobrenome] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  const [url, setUrl] = useState();
+  const [url, setUrl] = useState(null);
   const [dataNascimentoUsuario, setDataNascimentoUsuario] = useState("");
   const [dataNascimento, setDataNascimento] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
 
-
   const postLogin = async (e) => {
-  e.preventDefault();
-  try {
-    const response = await axios.post("http://localhost:8080/usuarios", {
-      nome: nome,
-      sobrenome : sobrenome,
-      email : email,
-      senha : senha,
-      dataNascimento: dataNascimento,
-      url : url,
-    });
+    e.preventDefault();
 
-   const data =  response.data 
-   console.log(data);
+    const formData = new FormData();
 
-  } catch (error) {
-    console.error("Erro ao fazer login:", error);
-    setError("Credenciais inválidas. Tente novamente.");
+    formData.append(
+      "usuarioInserirDTO",
+      new Blob(
+        [
+          JSON.stringify({
+            nome,
+            sobrenome,
+            email,
+            senha,
+            dataNascimento,
+          }),
+        ],
+        { type: "application/json" }
+      )
+    );
+
+    if (url) {
+      formData.append("file", url);
+    }
+
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/usuarios",
+        formData
+      );
+      setSuccess(true);
+      setNome("");
+      setSobrenome("");
+      setEmail("");
+      setSenha("");
+      setDataNascimento("")
+      setUrl(null);
+    } catch (error) {
+      setError(error.response.data);
+    }
+  };
+
+  function invertDate(data) {
+    const [year, month, day] = data.split("-");
+    setDataNascimento(data);
   }
-}
-function invertDate(data) {
-  const [year, month, day] = data.split("-");
-  setDataNascimento(data); 
-}
 
   return (
     <Main>
       <All>
         <H2>Registre-se</H2>
-        <Formulario onSubmit={(e)=> postLogin(e)}>
-
-          <Input type="text" 
-           placeholder="Nome"
-            value={nome} 
+        <Formulario onSubmit={(e) => postLogin(e)}>
+          <Input
+            type="text"
+            placeholder="Nome"
+            value={nome}
             onChange={(e) => setNome(e.target.value)}
             required
-            />
+          />
 
           <Input
             type="text"
@@ -60,17 +81,22 @@ function invertDate(data) {
             onChange={(e) => setSobrenome(e.target.value)}
             required
           />
-          <Input type="text" 
-          placeholder="Email" 
-          value={email} 
-          onChange={(e) => setEmail(e.target.value)}
-          required />
+          <Input
+            type="text"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
 
           <Input
             type="date"
             placeholder="Data de Nascimento"
             value={dataNascimento}
-            onChange={(e) => {invertDate(e.target.value), setDataNascimentoUsuario(e.target.value)}}
+            onChange={(e) => {
+              invertDate(e.target.value),
+                setDataNascimentoUsuario(e.target.value);
+            }}
             required
           />
           <Input
@@ -82,9 +108,7 @@ function invertDate(data) {
           />
           <Input
             type="file"
-            placeholder="Foto"
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
+            onChange={(e) => setUrl(e.target.files[0])}
             required
           />
 
@@ -92,11 +116,12 @@ function invertDate(data) {
           <Link to={"/"}>Ja tenho uma conta</Link>
         </Formulario>
 
-      {success && (
-        <p style={{ color: "green", marginTop: "10px" }}>
-          Login realizado com sucesso!
-        </p>
-      )}
+        {success && (
+          <p style={{ color: "green", marginTop: "10px" }}>
+            Conta Criada com sucesso!
+          </p>
+        )}
+        {error && <p style={{ color: "red", marginTop: "10px" }}>{error}</p>}
       </All>
     </Main>
   );

@@ -17,7 +17,7 @@ align-items: center;
 margin-bottom: 80px;
 background: rgba(255, 255, 255, 0.04);
 box-shadow: 0px 0px 100px 0px rgba(152, 91, 202, 0.8);
-width: 20%;
+width: 25%;
 height: 480px;
 @media (max-width: 800px) {
     width: 50%;

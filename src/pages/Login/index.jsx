@@ -61,7 +61,7 @@ export default function Login() {
             required
           />
           <Botao type="submit">Login</Botao>
-          <Link to={'/register'}>Registre-se</Link>
+          <Link to={'/register'}>Não tenho uma conta</Link>
         </Formulario>
 
         {error && <p style={{ color: "red", marginTop: "10px" }}>{error}</p>}
