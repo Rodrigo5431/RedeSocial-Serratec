@@ -7,7 +7,6 @@ export const Main = styled.main`
     justify-content: center;
     align-items: center;
     color: #fff;
-   
 `;
 
 export const CardPost = styled.div`
@@ -92,8 +91,6 @@ export const Formulario = styled.form`
     @media (max-width: 480px) {
     width: 100%; 
   }
-
- 
 `;
 
 export const TextConteudo = styled.textarea`
@@ -124,9 +121,5 @@ export const BtnDiv = styled.div`
     justify-content: center;
     padding: 10px;
     margin: 15px;
-    gap:30px
+    gap:30px;
 `;
-
-export const BtnPost2 = styled(BtnPost)`
-
-`

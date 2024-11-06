@@ -12,9 +12,10 @@ height: 100vh;
 color: #fff;
 
 `;
+
 export const NavButtons = styled(Link)`
 color: #6f20a8;
-`
+`;
 
 export const All = styled.div`
 justify-content: center;
@@ -23,16 +24,20 @@ margin-bottom: 80px;
 background: rgba(255, 255, 255, 0.04);
 box-shadow: 0px 0px 100px 0px rgba(152, 91, 202, 0.8);
 width: 25%;
+height: 480px;
 @media (max-width: 800px) {
     width: 50%;
 }
+@media (max-width: 1000px) {
+    width: 50%;
+}
 border-radius: 25px;
-
 `;
 export const Formulario = styled.form`
 display: flex;
 flex-direction: column;
 padding: 20px;
+
 
 `
 export const H2 = styled.h2`
@@ -40,7 +45,7 @@ display: flex;
 justify-content: center;
 margin-bottom: 60px;
 margin-left: 10px;
-margin-top: 10px;
+margin-top: 5px;
 font-size: 40px;
 font-family:Whereas recognition of the inherent dignity;
 @media (max-width: 650px) {
@@ -76,6 +81,6 @@ export const Botao = styled.button`
 
     @media (max-width: 650px) {
         width: 50px;
-    font-size: 15px;
+        font-size: 15px;
     }
 `;
