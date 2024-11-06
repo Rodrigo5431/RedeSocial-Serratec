@@ -1,28 +1,16 @@
 import { styled } from "styled-components";
 
-
 export const SupportPageWrapper = styled.div`
   font-family: Arial, sans-serif;
   background-color: #151718;
   min-height: 100vh;
 `;
 
-
-export const SupportHeader = styled.header`
-  background-color: #4B2C63;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  margin-bottom: 20px;
-`;
-
-
 export const SupportContent = styled.section`
   margin-top: 20px;
   text-align: center;
-  color: #FFF;
+  color: #fff;
 `;
-
 
 export const SupportOptions = styled.div`
   display: flex;
@@ -30,7 +18,7 @@ export const SupportOptions = styled.div`
   gap: 30px;
   margin-top: 40px;
   color: black;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
 `;
 
 export const Option = styled.div`
@@ -42,20 +30,20 @@ export const Option = styled.div`
   text-align: center;
   transition: transform 0.3s ease-in-out;
   margin-bottom: 20px;
-  height: auto; 
-  max-height: 600px; 
-  overflow: hidden; 
+  height: auto;
+  max-height: 600px;
+  overflow: hidden;
   &:hover {
     transform: translateY(-5px);
   }
 `;
 
-export const OptionTwo = styled(Option) `
+export const OptionTwo = styled(Option)`
   display: flex;
   justify-content: center;
   gap: 30px;
   color: black;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   background-color: white;
   border-radius: 8px;
   padding: 20px;
@@ -64,20 +52,12 @@ export const OptionTwo = styled(Option) `
   text-align: center;
   transition: transform 0.3s ease-in-out;
   margin-bottom: 20px;
-  height: 365px; 
+  height: 365px;
 
- 
-  
   &:hover {
     transform: translateY(-5px);
   }
 `;
-
-
-
-
-
-
 
 export const OptionButton = styled.button`
   display: flex;
@@ -92,17 +72,15 @@ export const OptionButton = styled.button`
   transition: background-color 0.3s, transform 0.3s;
   font-size: 15px;
 
-
   &:hover {
     background-color: #45a049;
     transform: translateY(-2px);
   }
 `;
 
-
 export const FaqQuestion = styled.h4`
   font-size: 18px;
-  color: #4B2C63;
+  color: #4b2c63;
   cursor: pointer;
   margin: 10px 0;
   padding: 10px;
@@ -111,15 +89,14 @@ export const FaqQuestion = styled.h4`
   transition: background-color 0.3s, color 0.3s;
 
   &:hover {
-    background-color: #4B2C63;
+    background-color: #4b2c63;
     color: white;
   }
 `;
 
-
 export const FaqAnswer = styled.p`
   font-size: 16px;
-  color: black;  // Cor preta para o texto da resposta
+  color: black; // Cor preta para o texto da resposta
   padding: 15px;
   background-color: #f1f1f1;
   border-radius: 8px;

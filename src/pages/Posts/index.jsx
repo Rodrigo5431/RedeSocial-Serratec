@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import {CardBody,CardPost,Formulario,TextConteudo,LabText,Line,Main,MsgH1,BtnPost,BtnDiv,} 
+import {CardBody,CardPost,Formulario,TextConteudo,LabText,Line,Main,MsgH1,BtnPost,BtnPost2,BtnDiv,} 
 from "./Posts.styles";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -73,7 +73,6 @@ export default function Posts() {
       navigate("/home"); 
     } catch (error) {
       console.error("Erro ao criar postagem:", error.response || error);
-      alert("Erro ao criar postagem. Tente novamente.");
     }
   };
 
@@ -97,6 +96,7 @@ export default function Posts() {
             )}
 
             <BtnDiv>
+              <BtnPost2 onClick={()=> navigate("/home")}>Voltar</BtnPost2>
               <BtnPost type="submit">Postar</BtnPost>
             </BtnDiv>
           </Formulario>

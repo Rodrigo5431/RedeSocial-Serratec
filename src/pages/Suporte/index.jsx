@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { FaWhatsapp } from 'react-icons/fa'; 
+import Header from "../../components/Header";
 import { 
   SupportPageWrapper, 
-  SupportHeader, 
   SupportContent, 
   SupportOptions, 
   Option, 
@@ -34,12 +34,7 @@ export default function Suporte() {
 
   return (
     <SupportPageWrapper>
-    
-      <SupportHeader>
-        <h1>Suporte Techgram</h1>
-      </SupportHeader>
-
-    
+    <Header/>
       <SupportContent>
         <h2>Como podemos te ajudar?</h2>
         <p>Se você está com dúvidas ou problemas, nós estamos aqui para ajudar!</p>

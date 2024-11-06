@@ -17,7 +17,7 @@ export default function Error() {
           <SubTituloQuatro>os limites do universo.</SubTituloQuatro>
           <SubTituloQuatro>A página requisitada não foi encontrada. </SubTituloQuatro>
           <ButtonContainer>
-            <Button to='/'>Voltar à Home</Button>
+            <Button to='/home'>Voltar à Home</Button>
           </ButtonContainer>
         </TextContainer>
       </Container>

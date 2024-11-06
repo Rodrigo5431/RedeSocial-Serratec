@@ -124,4 +124,9 @@ export const BtnDiv = styled.div`
     justify-content: center;
     padding: 10px;
     margin: 15px;
+    gap:30px
 `;
+
+export const BtnPost2 = styled(BtnPost)`
+
+`

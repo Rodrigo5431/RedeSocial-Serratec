@@ -49,7 +49,7 @@ export default function Register() {
       setEmail("");
       setSenha("");
       setDataNascimento("")
-      setUrl(null);
+      setUrl("");
     } catch (error) {
       setError(error.response.data);
     }

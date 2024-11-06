@@ -46,7 +46,7 @@ export default function Login() {
         <Formulario onSubmit={handleLogin}>
           <Input 
             type="text"
-            placeholder="Usuario"
+            placeholder="Email"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
