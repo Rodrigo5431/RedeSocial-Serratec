@@ -14,7 +14,7 @@ export default function Login() {
     setSuccess(false);
 
     try {
-      const response = await axios.post("http://localhost:8080/login", {
+      const response = await axios.post("https://portfolio-backend-l0j1.onrender.com/login", {
         username,
         password,
       });

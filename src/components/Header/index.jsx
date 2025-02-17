@@ -43,7 +43,7 @@ export default function Header() {
     try {
       const token = localStorage.getItem("token");
 
-      const response = await axios.get("http://localhost:8080/usuarios", {
+      const response = await axios.get("https://portfolio-backend-l0j1.onrender.com/usuarios", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -68,7 +68,7 @@ export default function Header() {
 
       if (userId) {
         const response = await axios.get(
-          `http://localhost:8080/usuarios/${userId}/foto`,
+          `https://portfolio-backend-l0j1.onrender.com/usuarios/${userId}/foto`,
           {
             headers: { Authorization: `Bearer ${token}` },
             responseType: "blob",
