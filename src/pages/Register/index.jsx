@@ -40,7 +40,7 @@ export default function Register() {
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/usuarios",
+        "https://rede-social-backend.onrender.com/usuarios",
         formData
       );
       setSuccess(true);

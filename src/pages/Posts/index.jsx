@@ -18,7 +18,7 @@ export default function Posts() {
     try {
       const token = localStorage.getItem("token"); 
 
-      const response = await axios.get("http://localhost:8080/usuarios", {
+      const response = await axios.get("https://rede-social-backend.onrender.com/usuarios", {
         headers: {
           Authorization: `Bearer ${token}`, 
         },
@@ -60,7 +60,7 @@ export default function Posts() {
       console.log("Dados da postagem:", postData);
 
       const response = await axios.post(
-        "http://localhost:8080/postagens",
+        "https://rede-social-backend.onrender.com/postagens",
         postData,
         {
           headers: {
