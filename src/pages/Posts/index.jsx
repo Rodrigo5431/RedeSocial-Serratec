@@ -18,7 +18,7 @@ export default function Posts() {
     try {
       const token = localStorage.getItem("token"); 
 
-      const response = await axios.get("https://portfolio-backend-l0j1.onrender.com/usuarios", {
+      const response = await axios.get("http://localhost:8080/usuarios", {
         headers: {
           Authorization: `Bearer ${token}`, 
         },
@@ -60,7 +60,7 @@ export default function Posts() {
       console.log("Dados da postagem:", postData);
 
       const response = await axios.post(
-        "https://portfolio-backend-l0j1.onrender.com/postagens",
+        "http://localhost:8080/postagens",
         postData,
         {
           headers: {

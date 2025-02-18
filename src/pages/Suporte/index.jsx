@@ -29,7 +29,7 @@ export default function Suporte() {
 
 
   const handleContactClick = () => {
-    window.location.href = 'https://wa.me/+5524992798292?text=Olá,%20preciso%20de%20ajuda!'; 
+    window.location.href = 'https://wa.me/+5524993351979?text=Olá,%20preciso%20de%20ajuda!'; 
   };
 
   return (

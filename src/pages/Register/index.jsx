@@ -40,7 +40,7 @@ export default function Register() {
 
     try {
       const response = await axios.post(
-        "https://portfolio-backend-l0j1.onrender.com/usuarios",
+        "http://localhost:8080/usuarios",
         formData
       );
       setSuccess(true);
@@ -48,7 +48,7 @@ export default function Register() {
       setSobrenome("");
       setEmail("");
       setSenha("");
-      setDataNascimento("")
+      setDataNascimento("");
       setUrl("");
     } catch (error) {
       setError(error.response.data);

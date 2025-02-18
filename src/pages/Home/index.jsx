@@ -27,7 +27,7 @@ export default function Home() {
     } else {
       const fetchPostagens = async () => {
         try {
-          const response = await axios.get("https://portfolio-backend-l0j1.onrender.com/postagens", {
+          const response = await axios.get("http://localhost:8080/postagens", {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -39,7 +39,7 @@ export default function Home() {
           const fotoPromises = response.data.map(async (postagem) => {
             try {
               const fotoResponse = await axios.get(
-                `https://portfolio-backend-l0j1.onrender.com/usuarios/${postagem.usuario.id}/foto`,
+                `http://localhost:8080/usuarios/${postagem.usuario.id}/foto`,
                 {
                   headers: {
                     Authorization: `Bearer ${token}`,
@@ -103,7 +103,7 @@ export default function Home() {
       const postagem = postagens.find((p) => p.id === postagemId);
 
       if (postagem.usuario.email === userEmail) {
-        await axios.delete(`https://portfolio-backend-l0j1.onrender.com/postagens/${postagemId}`, {
+        await axios.delete(`http://localhost:8080/postagens/${postagemId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

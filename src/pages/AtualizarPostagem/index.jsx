@@ -28,7 +28,7 @@ function AtualizarPostagem() {
     const fetchPostagem = async () => {
       try {
         const response = await axios.get(
-          `https://portfolio-backend-l0j1.onrender.com/postagens/${id}`,
+          `http://localhost:8080/postagens/${id}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -49,7 +49,7 @@ function AtualizarPostagem() {
     e.preventDefault();
     try {
       await axios.put(
-        `https://portfolio-backend-l0j1.onrender.com/postagens/${id}`,
+        `http://localhost:8080/postagens/${id}`,
 
         { conteudo, datacriacao: dataCriacao },
 
